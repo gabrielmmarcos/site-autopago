@@ -44,7 +44,7 @@ agenciaautopago.com
 
 <br/> 
 
-🎯 Funcionalidades Principais
+## 🎯 Funcionalidades Principais
 
 - Layout totalmente responsivo (desktop, tablet e mobile)
 - Seções claramente definidas: apresentação, serviços, benefícios, contato
