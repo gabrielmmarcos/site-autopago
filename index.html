@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoPago</title>
+
+    <!-- tailwind css -->
+    <link rel="stylesheet" href="./output.css">
+
+    <!-- icones -->
+    <script src="https://kit.fontawesome.com/6aa0405f4a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Para efeitos do carrosel -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Efeito de animacao  -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- logo -->
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <!-- Descricao -->
+    <meta name="description"
+        content="A Autopago ajuda empresas a vender mais com soluções de chatbot inteligente e tráfego pago estratégico. Automatize atendimentos, gere leads qualificados e aumente suas conversões com quem entende do assunto.">
+
+    <!-- Remova o @import do CSS e use preload no HTML -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap">
+
+    <!-- css para efeitos especificos -->
+    <style>
+        .x #line1 {
+            d: path("M6 6 L18 18");
+        }
+
+        .x #line2 {
+            display: none;
+        }
+
+        .x #line3 {
+            d: path("M6 18 L18 6");
+        }
+    </style>
+
+    <style>
+        @keyframes subtle-pop {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .animate-subtle-pop {
+            animation: subtle-pop 1.2s ease-in-out;
+        }
+
+
+        .swiper-wrapper {
+            transition-timing-function: linear !important;
+        }
+
+        @media (hover: none) {
+            .group.show-tooltip .tooltip {
+                opacity: 1 !important;
+                pointer-events: auto;
+            }
+        }
+    </style>
+    <!-- <style>
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .animate-draw path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw 2s ease-out forwards;
+        }
+    </style> -->
+</head>
+
+
+<body class="scroll-smooth" data-aos-easing:="ease" data-aos-duration="ease" data-aos-delay="0">
+    <!-- header -->
+    <header id="mainHeader"
+        class="fixed top-0 w-full max-w-[100vw] py-4 z-50 transition-all duration-300 border-b border-white/80 font-[Outfit]">
+        <div class="flex   h-fit justify-between  pl-3 pr-6  md:pl-0 md:pr-0 md:justify-evenly items-center ">
+            <div class="text-xl font-bold h-7 md:h-10 flex justify-center items-center pt-3 md:pt-4">
+                <img id="logo" src="img/logo.png" alt="AutoPago" class="h-15 md:h-20"> <!-- Default logo -->
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="space-x-6 hidden md:flex relative">
+                <a href="#servicos" class="hover:underline hover:underline-offset-4">Serviços</a>
+                <a href="#depoimentos" class="hover:underline hover:underline-offset-4">Depoimentos</a>
+                <a href="#planos" class="hover:underline hover:underline-offset-4">Planos</a>
+                <a href="#faq" class="hover:underline hover:underline-offset-4">Dúvidas</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <a href="https://wa.me/message/6P3JZVIXJ6IEJ1" target="_blank"
+                class="group px-6 py-3 bg-black rounded-full font-semibold transition hover:scale-105 object-none invisible md:visible">
+                <span class="text-white 
+                group-hover:text-transparent group-hover:bg-clip-text 
+                group-hover:bg-gradient-to-br group-hover:from-teal-100 
+                group-hover:via-sky-200 group-hover:to-blue-300">
+                    Agendar Consultoria
+                </span>
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button id="menuBtn" class="md:hidden text-black" aria-label="Abrir menu de navegação">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path id="line1" d="M4 6h16" />
+                    <path id="line2" d="M4 12h16" />
+                    <path id="line3" d="M4 18h16" />
+                </svg>
+            </button>
+
+
+        </div>
+        <!-- Linha separadora (inicialmente oculta) -->
+        <div id="menuDivider" class="md:hidden border-t border-gray-300 mx-6 hidden"></div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu"
+            class="md:hidden  px-6 py-2 space-y-3  flex-col transition duration-300 ease-in-out transform scale-95 opacity-0 hidden justify-start ">
+
+            <a href="#servicos" class="mobile-link hover:underline hover:underline-offset-4">Serviços</a>
+            <a href="#depoimentos" class="mobile-link hover:underline hover:underline-offset-4">Depoimentos</a>
+
+            <a href="#planos" class="mobile-link hover:underline hover:underline-offset-4">Planos</a>
+            <a href="#faq" class="mobile-link hover:underline hover:underline-offset-4">Dúvidas</a>
+
+        </div>
+
+    </header>
+
+    <!-- Home -->
+    <section id="home"
+        class="min-h-[75vh]  md:min-h-[82vh]  flex flex-col justify-center items-center text-center mx-2 mt-1 rounded-2xl px-4 bg-gradient-to-br from-teal-100 via-sky-200 to-blue-300 font-[Outfit]">
+        <h1 class="text-5xl md:text-6xl mt-20  w-[340px] md:w-full font-medium text-black mb-6">
+            Mais Clientes, <span class="text-black">M</span><span id="typed-word"></span>
+        </h1>
+
+
+        <p class=" text-lg text-gray-700 mb-8 max-w-xl ">
+            Atraia clientes com um serviço autopago. O investimento se paga.
+
+        </p>
+
+        <div class=" flex flex-col sm:flex-row gap-4">
+            <a href="https://wa.me/message/6P3JZVIXJ6IEJ1" target="_blank"
+                class="group px-6 py-3 bg-black rounded-full font-semibold transition hover:scale-105 ">
+                <span class="text-white 
+                group-hover:text-transparent group-hover:bg-clip-text 
+                group-hover:bg-gradient-to-br group-hover:from-teal-100 
+                group-hover:via-sky-200 group-hover:to-blue-300">
+                    Agendar Consultoria
+                </span>
+            </a>
+
+            <a href="#planos"
+                class="relative inline-flex items-center justify-center px-4 py-2 rounded-full border border-transparent bg-white/15 shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full after:shadow-[inset_0_0_2px_1px_#ffffff4d] text-base font-medium whitespace-nowrap text-gray-950 hover:bg-white/60 hover:scale-105 transition">
+                Ver Planos
+            </a>
+        </div>
+        <div class="flex justify-center gap-5 pt-7 h-fit">
+            <a href="https://wa.me/message/6P3JZVIXJ6IEJ1" target="_blank" aria-label="WhatsApp da Autopago"
+                class="text-gray-800 hover:text-black hover:scale-110 transition motion-safe:hover:motion-translate-y-loop-25">
+                <i class="fab fa-whatsapp text-2xl"></i>
+            </a>
+            <a href="https://www.instagram.com/autopagooficial/" target="_blank" aria-label="Instagram da Autopago"
+                class="text-gray-800 hover:text-black hover:scale-110 transition motion-safe:hover:motion-translate-y-loop-25">
+                <i class="fab fa-instagram text-2xl"></i>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61576394737252" target="_blank"
+                aria-label="Facebook da Autopago"
+                class="text-gray-800 hover:text-black hover:scale-110 transition motion-safe:hover:motion-translate-y-loop-25">
+                <i class="fab fa-facebook text-2xl"></i>
+            </a>
+            <a href="https://www.youtube.com/@Autopago" target="_blank" aria-label="YouTube da Autopago"
+                class="text-gray-800 hover:text-black hover:scale-110 transition motion-safe:hover:motion-translate-y-loop-25">
+                <i class="fab fa-youtube text-2xl"></i>
+            </a>
+            <a href="#forms" aria-label="Formulário de contato da Autopago"
+                class="text-gray-800 hover:text-black hover:scale-110 transition motion-safe:hover:motion-translate-y-loop-25">
+                <i class="fas fa-envelope text-2xl"></i>
+            </a>
+            <!-- Icone linkedIn
+            <a href="#" aria-label="LinkedIn da Autopago"
+                class="text-gray-800 hover:text-black hover:scale-110 transition motion-safe:hover:motion-translate-y-loop-25">
+                <i class="fab fa-linkedin text-2xl"></i>
+            </a>
+            -->
+        </div>
+
+        </div>
+
+
+
+    </section>
+
+    <!-- Sessao de Videos  -->
+    <section id="servicos" class="py-20 bg-white font-[Outfit]">
+        <!-- titulo -->
+        <div class="text-center pb-15 px-4 max-w-4xl mx-auto">
+            <span class="text-sky-600 font-semibold uppercase tracking-wider text-sm">Serviços</span>
+            <h2
+                class="text-3xl md:text-5xl lg:max-w-3xl m-auto font-bold text-neutral-900 mt-2 mb-4 leading-tight tracking-tight">
+                Impulsione com Tráfego Pago. Conquiste com Automação
+            </h2>
+
+            <p class="text-lg text-gray-600">
+                Resultados garantidos: atraia clientes qualificados, otimize sua operação com automação e veja suas
+                vendas decolarem com estratégias de tráfego pago
+            </p>
+        </div>
+        <div class="space-y-12 px-6 max-w-6xl mx-auto">
+
+            <!-- Bloco 1 -->
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <!-- Vídeo -->
+                <video autoplay muted loop playsinline
+                    class="w-full md:w-1/2 aspect-square object-cover rounded-xl shadow-md" data-aos="fade-right">
+                    <source src="videos/video1.mp4" type="video/mp4">
+                    Seu navegador não suporta vídeo.
+                </video>
+
+
+                <!-- Texto -->
+                <div class="w-full md:w-1/2 justify-center items-center flex flex-col" data-aos="fade-left">
+                    <div class="w-full md:max-w-[24rem] ">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Venda Automaticamente Enquanto Você <span
+                                class="motion-preset-pulse-sm h-fit">Dorme</span></h2>
+                        <p class="text-gray-700 mb-6">
+                            Imagine conquistar novos clientes enquanto descansa. Nossa solução automatiza a atração e
+                            conversão de leads, para que seu negócio cresça no automático — sem complicações.
+                        </p>
+                        <a href="https://wa.me/message/6P3JZVIXJ6IEJ1" target="_blank"
+                            class="group px-6 py-3 bg-black rounded-full font-semibold transition hover:scale-105 w-fit">
+                            <span class="text-white 
+                group-hover:text-transparent group-hover:bg-clip-text 
+                group-hover:bg-gradient-to-br group-hover:from-teal-100 
+                group-hover:via-sky-200 group-hover:to-blue-300">
+                                Agendar Consultoria
+                            </span>
+                        </a>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bloco 2 -->
+            <div class="flex flex-col-reverse md:flex-row items-center gap-8">
+                <!-- Texto -->
+                <div class="w-full md:w-1/2 justify-center items-center flex flex-col" data-aos="fade-right">
+                    <div class="w-full md:max-w-[24rem] ">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Automatização Inteligente para Escalar
+                            Resultados</h2>
+                        <p class="text-gray-700 mb-6">
+                            Capte informações essenciais de leads, integre automaticamente ao seu CRM e acelere suas
+                            vendas com processos 100% otimizados. Menos tarefas manuais, mais crescimento.
+                        </p>
+                        <a href="https://wa.me/message/6P3JZVIXJ6IEJ1" target="_blank"
+                            class="group px-6 py-3 bg-black rounded-full font-semibold transition hover:scale-105 w-fit">
+                            <span class="text-white 
+                group-hover:text-transparent group-hover:bg-clip-text 
+                group-hover:bg-gradient-to-br group-hover:from-teal-100 
+                group-hover:via-sky-200 group-hover:to-blue-300">
+                                Agendar Consultoria
+                            </span>
+                        </a>
+
+                    </div>
+                </div>
+                <!-- Vídeo -->
+                <video autoplay muted loop playsinline
+                    class="w-full md:w-1/2 aspect-square object-cover rounded-xl shadow-md" data-aos="fade-left">
+                    <source src="videos/video2.mp4" type="video/mp4">
+                    Seu navegador não suporta vídeo.
+                </video>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Serviços de Automacao  -->
+    <section class="bg-gradient-to-br from-teal-100 via-sky-200 to-blue-300 py-20 font-[Outfit]">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+
+            <!-- Lado esquerdo: imagem -->
+            <div class="relative flex justify-center items-center h-fit md:h-[667px]" data-aos="flip-up">
+                <img src="img/homemComChatbot.jpg" alt="Homem com Chat-Bot" class="rounded-3xl max-h-full">
+            </div>
+
+            <!-- Lado direito: textos -->
+            <div class="space-y-8">
+
+                <!-- Bloco grande -->
+                <div class="bg-sky-800 text-white p-6 rounded-2xl" data-aos="flip-right">
+                    <h2 class="text-2xl md:text-3xl font-bold">
+                        Atenda como um humano, mas com a eficiência de um robô!
+                    </h2>
+                    <p class="mt-4 text-sky-100">
+                        Deixe a tecnologia cuidar de tudo — do primeiro 'olá' até o
+                        'compra confirmada'!
+                    </p>
+                </div>
+
+                <!-- Dois blocos menores -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-aos="flip-left">
+                    <div class="bg-sky-50 p-6 rounded-2xl">
+                        <h3 class="text-xl font-semibold text-sky-600 flex flex-col  gap-2">
+                            De conversas simples a vendas certeiras
+                        </h3>
+                        <p class="mt-2 text-sky-700">
+                            Atendimento contínuo e sem pausas: dúvidas, escolhas e compras resolvidas de forma ágil
+                            e 100% automática
+                        </p>
+                    </div>
+
+                    <div class="bg-sky-50 p-6 rounded-2xl">
+                        <h3 class="text-xl font-semibold text-sky-600 flex items-center gap-2">
+                            Conversas bem conduzidas geram grandes negócios
+
+                        </h3>
+                        <p class="mt-2 text-sky-700">
+                            Seu atendimento funcionando 24 horas por dia, 7 dias por semana, sem pausa para o almoço,
+                            sem folga e sem hora extra
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Novo bloco "Canais" -->
+                <div class="bg-white p-6 rounded-2xl" data-aos="flip-right">
+                    <h2 class="text-2xl md:text-3xl font-bold text-center text-sky-600">
+                        Faça automações em todos os canais
+                    </h2>
+                    <p class="mt-4 text-center  text-sky-700">
+                        Conecte-se com seus clientes em qualquer lugar.
+                        — WhatsApp, Instagram, Facebook, Messenger e SMS
+
+                    </p>
+                    <!-- Slider infinito  Automacao-->
+                    <div class="w-full lg:w-[500px] mt-8 mx-auto">
+                        <div class="swiper trafficToolsSwiper pointer-events-none" dir="ltr">
+                            <div class="swiper-wrapper swiper-wrapper-icon items-center flex gap-0.5">
+                                <!-- Google Ads -->
+                                <div class="swiper-slide flex justify-center">
+                                    <img src="img/iconesAutomacao/whatsapp 48px.png" alt="WhatsApp" class="h-12">
+                                </div>
+                                <!-- Instagram -->
+                                <div class="swiper-slide flex justify-center">
+                                    <img src="img/iconesAutomacao/icone instagram - 48px.png" alt="Instagram"
+                                        class="h-12">
+                                </div>
+                                <!-- Facebook -->
+                                <div class="swiper-slide flex justify-center w-fit">
+                                    <img src="img/iconesAutomacao/icone facebook 48px.png" alt="Facebook" class="h-12">
+                                </div>
+                                <!--Messager -->
+                                <div class="swiper-slide flex justify-center">
+                                    <img src="img/iconesAutomacao/icone messenger 48px.png" alt="menssager"
+                                        class="h-12">
+                                </div>
+                                <!-- Sms -->
+                                <div class="swiper-slide flex justify-center h-12 w-12">
+                                    <img src="img/iconesAutomacao/icone sms 48px.png" alt="sms" class="h-12">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <!-- serviços Tráfego Pago -->
+    <section class="bg-white py-12 md:px-16 font-[Outfit]">
+        <div class="gap-6 max-w-7xl mx-auto px-6 flex flex-col lg:flex-row min-h-full">
+            <!-- Coluna da esquerda -->
+            <div id="cards-container-2" class="flex flex-col flex-[0.8] rounded-2xl lg:rounded-none">
+                <div class="h-300px">
+                    <img src="img/gestorDeTrafego.jpeg.jpg" alt="Imagem gestor de tráfego"
+                        class="mb-6 w-full h-auto object-cover rounded-2xl lg:rounded-none lg:rounded-br-2xl"
+                        data-aos="fade-left">
+                </div>
+
+                <div class="bg-gray-100 p-6 flex flex-col flex-1 justify-center rounded-2xl lg:rounded-none lg:rounded-tr-2xl  "
+                    data-aos="">
+                    <h2 class="text-sky-600 font-semibold uppercase text-sm mb-2">Tráfego Pago</h2>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4 text-gray-800">Impulsione suas campanhas com
+                        inteligência e precisão</h3>
+                    <p class="text-gray-600  mb-2">
+                        Aproveite dados em tempo real para tomar decisões mais estratégicas, ajustar suas campanhas com
+                        agilidade e garantir que cada clique leve seu negócio mais perto dos resultados esperados. Com
+                        análise contínua e foco em performance, você transforma investimento em crescimento sólido.
+                    </p>
+
+
+
+                    <!-- Ícones animados -->
+                    <div class="w-full lg:w-[480px] mt-8">
+                        <div class="swiper trafficToolsSwiper pointer-events-none" dir="rtl">
+                            <div class="swiper-wrapper swiper-wrapper-icon items-center flex gap-0.5">
+                                <!-- Google Ads -->
+                                <div class="swiper-slide flex justify-center">
+                                    <img src="img/iconesTrafego/icone google ads 48px.png" alt="Google Ads"
+                                        class="h-11">
+                                </div>
+                                <!-- Google com texto -->
+                                <div class="swiper-slide flex justify-center">
+                                    <img src="img/iconesTrafego/icone - google 48px.png" alt="Google com texto"
+                                        class="h-12">
+                                </div>
+                                <!-- YouTube -->
+                                <div class="swiper-slide flex justify-center h-12 w-12">
+                                    <img src="img/iconesTrafego/icone youtube 68px - 48px.png" alt="YouTube"
+                                        class="h-11 w-16">
+                                </div>
+                                <!-- Instagram -->
+                                <div class="swiper-slide flex justify-center">
+                                    <img src="img/iconesAutomacao/icone instagram - 48px.png" alt="Instagram"
+                                        class="h-12">
+                                </div>
+                                <!-- Facebook -->
+                                <div class="swiper-slide flex justify-center w-fit">
+                                    <img src="img/iconesAutomacao/icone facebook 48px.png" alt="Facebook" class="h-12">
+                                </div>
+                                <!-- LinkedIn (quadrado) -->
+                                <div class="swiper-slide flex justify-center">
+                                    <img src="img/iconesTrafego/Icone linkdIn - quadrado -  48px.png" alt="LinkedIn"
+                                        class="h-12">
+                                </div>
+                                <!-- Meta Ads -->
+                                <div class="swiper-slide flex justify-center ">
+                                    <img src="img/iconesTrafego/icone meta ads 70px - 48px.png" alt="Meta Ads"
+                                        class="h-11">
+                                </div>
+
+                                <!-- TikTok -->
+                                <div class="swiper-slide flex justify-center">
+                                    <img src="img/iconesTrafego/icone tiktok 48px.png" alt="TikTok" class="h-12">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <!-- Coluna da direita -->
+
+            <div id="cards-container" class="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1">
+                <!-- Card 1 -->
+                <div class="bg-gray-100 p-6 flex flex-col h-full rounded-2xl lg:rounded-none lg:rounded-b-2xl group border-transparent hover:border-1 hover:border-sky-500 transition-all"
+                    data-aos="fade-left">
+                    <div class="text-sky-600 text-3xl mb-4">
+                        <i class="fas fa-bullseye group-hover:motion-translate-y-loop-25"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2 text-gray-800">Alcance o público ideal</h3>
+                    <p class="text-gray-600">
+                        Segmentação avançada para impactar diretamente quem tem maior potencial de compra.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-gray-100 p-6 flex flex-col h-full rounded-2xl lg:rounded-none lg:rounded-bl-2xl group border-transparent hover:border-1 hover:border-sky-500 transition-all"
+                    data-aos="fade-right">
+                    <div class="text-sky-600 text-3xl mb-4">
+                        <i class="fas fa-comments-dollar group-hover:motion-preset-pulse-sm"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2 text-gray-800">Gere leads qualificados</h3>
+                    <p class="text-gray-600">
+                        Atraia pessoas realmente interessadas no seu produto ou serviços diariamente com
+                        campanhas otimizadas.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-gray-100 p-6 flex flex-col h-full rounded-2xl group border-transparent hover:border-1 hover:border-sky-500 transition-all"
+                    data-aos="fade-left">
+                    <div class="text-sky-600 text-3xl mb-4">
+                        <i class="fas fa-chart-line group-hover:motion-translate-y-loop-25"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2 text-gray-800">Maximize o ROI</h3>
+                    <p class="text-gray-600">
+                        Venda mais, gaste menos: cada centavo é projetada para trazer retorno direto ao seu bolso
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-gray-100 p-6 flex flex-col h-full rounded-2xl lg:rounded-none lg:rounded-l-2xl group border-transparent hover:border-1 hover:border-sky-500 transition-all"
+                    data-aos="fade-right">
+                    <div class="text-sky-600 text-3xl mb-4">
+                        <i class="fas fa-rocket group-hover:motion-rotate-loop-15"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2 text-gray-800">Escale suas vendas</h3>
+                    <p class="text-gray-600">
+                        Aumente sua base de clientes para expandir seu faturamento sem complicação
+                    </p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-gray-100 p-6 flex flex-col h-full rounded-2xl lg:rounded-none lg:rounded-t-2xl group border-transparent hover:border-1 hover:border-sky-500 transition-all"
+                    data-aos="fade-left">
+                    <div class="text-sky-600 text-3xl mb-4">
+                        <i class="fas fa-sync-alt group-hover:motion-rotate-loop-15"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2 text-gray-800">Otimizações constantes</h3>
+                    <p class="text-gray-600">
+                        Análise e ajustes em tempo real para manter seus resultados sempre performando no máximo.
+                    </p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="bg-gray-100 p-6 flex flex-col h-full rounded-2xl lg:rounded-none lg:rounded-tl-2xl group border-transparent hover:border-1 hover:border-sky-500 transition-all duration-300"
+                    data-aos="fade-right">
+                    <div class="text-sky-600 text-3xl mb-4">
+                        <i class="fas fa-chart-pie group-hover:motion-scale-loop-110"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2 text-gray-800">Relatórios detalhados</h3>
+                    <p class="text-gray-600">
+                        Painéis completos com dados de desempenho, conversões e oportunidades de melhoria.
+                    </p>
+                </div>
+            </div>
+    </section>
+
+    <!-- Como trabalhamos -->
+    <section class="max-w-6xl w-full mx-auto px-4 py-16 font-[Outfit]">
+        <div data-aos="fade-up" class="text-center pb-15 px-4 max-w-4xl mx-auto">
+            <span class="text-sky-600 font-semibold uppercase tracking-wider text-sm motion-translate-x-loop">
+                Como Trabalhamos
+            </span>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mt-2 mb-4">
+                Automatizamos Vendas
+            </h2>
+            <p class="text-lg text-gray-600">
+                Entenda como nossa solução automatizada guia seus clientes do problema à fidelização com eficiência e
+                conversa natural.
+            </p>
+        </div>
+
+        <div class="flex flex-col  lg:flex-row
+ md:justify-between gap-8 items-center">
+
+            <!-- Etapa 1 -->
+            <div data-aos="fade-up" data-aos-delay="100">
+                <div
+                    class="group relative bg-sky-800 text-white p-6 rounded-xl shadow-md w-full md:w-80 transition-transform duration-300 hover:scale-105">
+                    <span
+                        class="absolute -top-4 left-4 bg-sky-200 text-sky-800 text-sm font-semibold px-3 py-1 rounded-full">
+                        Etapa 01
+                    </span>
+                    <div class="flex items-center gap-3 mt-4">
+                        <i class="fas fa-magnet text-white text-xl group-hover:motion-preset-pulse-sm"></i>
+                        <h3 class="text-xl font-bold">Atração</h3>
+                    </div>
+                    <p class="mt-2 text-sm leading-relaxed">
+                        A Autopago atrai clientes ideais com estratégias de tráfego pago e conteúdos que convertem.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Setinha -->
+            <div data-aos="fade-up" data-aos-delay="200" class="text-sky-600 text-2xl flex items-center justify-center">
+                <div class="hidden lg:block"><i class="fas fa-arrow-right"></i></div>
+                <div class="block lg:hidden"><i class="fas fa-arrow-down"></i></div>
+            </div>
+
+            <!-- Etapa 2 -->
+            <div data-aos="fade-up" data-aos-delay="300">
+                <div
+                    class="group relative bg-sky-800 text-white p-6 rounded-xl shadow-md w-full md:w-80 transition-transform duration-300 hover:scale-105">
+                    <span
+                        class="absolute -top-4 left-4 bg-sky-200 text-sky-800 text-sm font-semibold px-3 py-1 rounded-full">
+                        Etapa 02
+                    </span>
+                    <div class="flex items-center gap-3 mt-4">
+                        <i class="fas fa-robot text-white text-xl group-hover:motion-preset-pulse-sm"></i>
+                        <h3 class="text-xl font-bold">Automação</h3>
+                    </div>
+                    <p class="mt-2 text-sm leading-relaxed">
+                        Utilizamos chatbots inteligentes para automatizar atendimentos e qualificar leads
+                        automaticamente.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Setinha -->
+            <div data-aos="fade-up" data-aos-delay="400" class="text-sky-600 text-2xl flex items-center justify-center">
+                <div class="hidden lg:block"><i class="fas fa-arrow-right"></i></div>
+                <div class="block lg:hidden"><i class="fas fa-arrow-down"></i></div>
+            </div>
+
+            <!-- Etapa 3 -->
+            <div data-aos="fade-up" data-aos-delay="500">
+                <div
+                    class="group relative bg-sky-800 text-white p-6 rounded-xl shadow-md w-full md:w-80 transition-transform duration-300 hover:scale-105">
+                    <span
+                        class="absolute -top-4 left-4 bg-sky-200 text-sky-800 text-sm font-semibold px-3 py-1 rounded-full">
+                        Etapa 03
+                    </span>
+                    <div class="flex items-center gap-3 mt-4">
+                        <i class="fas fa-rocket text-white text-xl group-hover:motion-preset-pulse-sm"></i>
+                        <h3 class="text-xl font-bold">Escala</h3>
+                    </div>
+                    <p class="mt-2 text-sm leading-relaxed">
+                        Com processos otimizados, a Autopago escala suas vendas com consistência e previsibilidade.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="bg-white py-20 font-[Outfit]" data-aos="fade-in" data-aos-duration="1000">
+
+        <div class="text-center pb-15 px-4 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+            <span
+                class="text-sky-600 font-semibold uppercase tracking-wider text-sm motion-translate-x-loop">Depoimentos</span>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mt-2 mb-4">
+                Confiança construída com Resultados
+            </h2>
+            <p class="text-lg text-gray-600">
+                Empresas de todos os tamanhos confiam na Autopago para simplificar processos e maximizar resultados.
+            </p>
+        </div>
+
+        <!-- Testimonials Slider -->
+        <div class="swiper testimonialSwiper max-w-4xl md:max-w-6xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-wrapper swiper-wrapper-testimonials">
+                <!-- Testimonials will be inserted here by JavaScript -->
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="flex justify-between items-center mt-12 mx-5 lg:mx-0">
+                <!-- Pagination Dots -->
+                <div class="swiper-pagination !relative !bottom-0 !w-auto">
+
+                </div>
+
+                <!-- Navigation Arrows -->
+                <div class="flex sm:!flex lg:!flex xl:!flex gap-4 ">
+                    <!-- Botão PREV -->
+                    <div
+                        class="group swiper-button-prev !static !w-[45px] !h-[45px] flex items-center justify-center rounded-full border-2 border-sky-500 text-sky-500 hover:bg-sky-500 hover:text-white transition-all after:!content-['']">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 rotate-180" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 12h10 0l-4-4m4 4l-4 4"
+                                class="group-hover:text-white" />
+                        </svg>
+                    </div>
+
+                    <!-- Botão NEXT -->
+                    <div
+                        class="group swiper-button-next !static !w-[45px] !h-[45px] flex items-center justify-center rounded-full border-2  border-sky-500 text-sky-500 hover:bg-sky-500 hover:text-white transition-all after:!content-['']">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 12h10 0l-4-4m4 4l-4 4"
+                                class="group-hover:text-white" />
+                        </svg>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <!-- Planos  1 (ta na documentação)-->
+
+    <!-- Planos 2 -->
+    <section id="planos" class="py-20 bg-gray-50 font-[Outfit]">
+        <div class="text-center pb-15 px-4 max-w-5xl mx-auto" data-aos="fade-up">
+            <span class="text-sky-600 font-semibold uppercase tracking-wider text-sm">Planos</span>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mt-2 mb-4">
+                Soluções que Fazem o Trabalho por Você
+            </h2>
+            <p class="text-lg text-gray-600">
+                Automação e tráfego pago combinados para escalar seu negócio.
+            </p>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6 items-center">
+
+                <!-- Plano: Automação -->
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm transition-all duration-300 hover:border-sky-500 hover:scale-105">
+                        <h3
+                            class="text-2xl font-bold text-gray-900 transition-colors duration-300 group-hover:text-sky-500 mb-2 text-center">
+                            Automação
+                        </h3>
+                        <p class="text-sm text-gray-600 text-center mb-6">
+                            Crie chatbots para qualquer canal e escale seu atendimento com eficiência.
+                        </p>
+
+                        <!-- Botão -->
+                        <a href="https://wa.me/message/6P3JZVIXJ6IEJ1" target="_blank"
+                            class="flex justify-center w-full hover:bg-sky-500 bg-white text-sky-500 border border-sky-500 hover:text-white font-semibold py-2 rounded-xl transition hover:scale-105 uppercase">
+                            Agendar Consultoria
+                        </a>
+
+                        <!-- Benefícios -->
+                        <div
+                            class="bg-white rounded-xl mt-6 w-full py-4 px-6 space-y-3 text-left text-sm text-gray-600 group-hover:text-sky-800">
+                            <div class="flex items-center"><i class="fas fa-check text-sky-500 mr-2"></i> Atendimento
+                                24/7</div>
+                            <div class="flex items-center"><i class="fas fa-check text-sky-500 mr-2"></i> Redução de
+                                Custos Operacional</div>
+                            <div class="flex items-center"><i class="fas fa-check text-sky-500 mr-2"></i>
+                                Escalabilidade no atendimento</div>
+                            <div class="flex items-center"><i class="fas fa-check text-sky-500 mr-2"></i>
+                                Qualificação automática de leads</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plano Mais Escolhido: AutoPago -->
+                <div data-aos="fade-up" data-aos-delay="50">
+                    <div
+                        class="relative bg-sky-900 text-white border border-gray-200 rounded-2xl p-8 shadow-lg transition-all duration-300 hover:border-sky-500 hover:scale-110 lg:scale-105 ">
+                        <!-- Badge -->
+                        <div
+                            class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-teal-400 text-gray-900 text-xs font-bold uppercase px-3 py-1 rounded-full shadow">
+                            Mais escolhido
+                        </div>
+
+                        <!-- Conteúdo -->
+                        <div class="flex flex-col items-center text-center space-y-4 pt-8">
+                            <h3 class="text-2xl font-bold uppercase">AutoPago</h3>
+                            <p class="text-sm text-sky-100">
+                                Atraia com tráfego pago e converta com automação inteligente.
+                            </p>
+
+                            <!-- Botão -->
+                            <a href="https://wa.me/message/6P3JZVIXJ6IEJ1" target="_blank"
+                                class="w-full bg-teal-400  text-gray-900 font-semibold py-2 rounded-xl transition hover:scale-105 uppercase">
+                                Agendar Consultoria
+                            </a>
+
+                            <!-- Benefícios -->
+                            <div
+                                class="bg-white text-sky-800 rounded-xl mt-6 w-full py-4 px-6 space-y-3 text-left text-sm">
+                                <div class="flex items-center"><i class="fas fa-check text-teal-500 mr-2"></i> Atração e
+                                    conversão integradas</div>
+                                <div class="flex items-center"><i class="fas fa-check text-teal-500 mr-2"></i>
+                                    Escala com eficiência</div>
+                                <div class="flex items-center"><i class="fas fa-check text-teal-500 mr-2"></i> Resposta
+                                    imediata ao tráfego</div>
+                                <div class="flex items-center"><i class="fas fa-check text-teal-500 mr-2"></i>
+                                    Otimização do funil completo</div>
+                                <div class="flex items-center"><i class="fas fa-check text-teal-500 mr-2"></i>
+                                    Mais resultados com menos esforço</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plano: Tráfego Pago -->
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm transition-all duration-300 hover:border-sky-500 hover:scale-105">
+                        <h3
+                            class="text-2xl font-bold text-gray-900 transition-colors duration-300 group-hover:text-sky-500 mb-2 text-center">
+                            Tráfego Pago
+                        </h3>
+                        <p class="text-sm text-gray-600 text-center mb-6">
+                            Resultados rápidos com campanhas focadas em conversão.
+                        </p>
+
+                        <!-- Botão -->
+                        <a href="https://wa.me/message/6P3JZVIXJ6IEJ1" target="_blank"
+                            class="flex justify-center w-full hover:bg-sky-500 bg-white text-sky-500 border border-sky-500 hover:text-white font-semibold py-2 rounded-xl transition hover:scale-105 uppercase">
+                            Agendar Consultoria
+                        </a>
+
+                        <!-- Benefícios -->
+                        <div
+                            class="bg-white rounded-xl mt-6 w-full py-4 px-6 space-y-3 text-left text-sm text-gray-600 group-hover:text-sky-800">
+                            <div class="flex items-center"><i class="fas fa-check text-sky-500 mr-2"></i> Alcance
+                                imediato</div>
+                            <div class="flex items-center"><i class="fas fa-check text-sky-500 mr-2"></i> Segmentação
+                                Avançada</div>
+                            <div class="flex items-center"><i class="fas fa-check text-sky-500 mr-2"></i> Aumento
+                                rápido de leads</div>
+                            <div class="flex items-center"><i class="fas fa-check text-sky-500 mr-2"></i> Controle de
+                                investimento</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </section>
+
+
+    <!-- Dúvidas -->
+    <section id="faq" class="py-20 bg-white font-[Outfit]" data-aos="fade-in">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">Dúvidas Frequentes</h2>
+
+            <!-- Pergunta 1 -->
+            <div class="border-b border-gray-200 hover:border-sky-500 group transition-colors duration-200">
+                <details class="group overflow-hidden transition-all duration-300 ease-in-out">
+                    <summary class="w-full flex justify-between items-center cursor-pointer list-none py-6">
+                        <h3 class="text-lg font-semibold text-gray-900 w-full">Posso usar automação e tráfego pago
+                            juntos?</h3>
+                        <span class="text-gray-500 group-open:hidden group-hover:text-sky-400 text-2xl">+</span>
+                        <span class="text-gray-500 hidden group-open:inline group-hover:text-sky-400 text-2xl">–</span>
+                    </summary>
+                    <div
+                        class="grid transition-all duration-300 ease-in-out group-open:grid-rows-[1fr] grid-rows-[0fr]">
+                        <div class="overflow-hidden">
+                            <p class="text-gray-600 mt-2">Sim! Unir os dois aumenta a conversão: o tráfego atrai
+                                clientes e a automação mantém o engajamento até a venda.</p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Pergunta 2 -->
+            <div class="border-b border-gray-200 hover:border-sky-500 group transition-colors duration-200">
+                <details class="group overflow-hidden transition-all duration-300 ease-in-out">
+                    <summary class="w-full flex justify-between items-center cursor-pointer list-none py-6">
+                        <h3 class="text-lg font-semibold text-gray-900 w-full">Posso contratar os serviços separados?
+                        </h3>
+                        <span class="text-gray-500 group-open:hidden group-hover:text-sky-400 text-2xl">+</span>
+                        <span class="text-gray-500 hidden group-open:inline group-hover:text-sky-400 text-2xl">–</span>
+                    </summary>
+                    <div
+                        class="grid transition-all duration-300 ease-in-out group-open:grid-rows-[1fr] grid-rows-[0fr]">
+                        <div class="overflow-hidden">
+                            <p class="text-gray-600 mt-2">Sim, você pode contratar tráfego pago ou automação
+                                separadamente. No entanto, usar os dois juntos é muito mais eficiente: o tráfego traz os
+                                visitantes e a automação continua o relacionamento com eles até a compra.</p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Pergunta 3 -->
+            <div class="border-b border-gray-200 hover:border-sky-500 group transition-colors duration-200">
+                <details class="group overflow-hidden transition-all duration-300 ease-in-out">
+                    <summary class="w-full flex justify-between items-center cursor-pointer list-none py-6">
+                        <h3 class="text-lg font-semibold text-gray-900 w-full">Vocês trabalham com criação de site e
+                            Google Meu Negócio?</h3>
+                        <span class="text-gray-500 group-open:hidden group-hover:text-sky-400 text-2xl">+</span>
+                        <span class="text-gray-500 hidden group-open:inline group-hover:text-sky-400 text-2xl">–</span>
+                    </summary>
+                    <div
+                        class="grid transition-all duration-300 ease-in-out group-open:grid-rows-[1fr] grid-rows-[0fr]">
+                        <div class="overflow-hidden">
+                            <p class="text-gray-600 mt-2">Sim! Desenvolvemos sites profissionais com foco em
+                                performance, visual moderno e experiência do usuário. Eles são responsivos (funcionam em
+                                celular, tablet e computador) e otimizados para aparecer bem no Google. Também
+                                realizamos o cadastro da sua empresa no Google Meu Negócio, ajudando a destacar seu
+                                negócio nas buscas locais e no Google Maps — o que atrai mais clientes da sua região.
+                            </p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Pergunta 4 -->
+            <div class="border-b border-gray-200 hover:border-sky-500 group transition-colors duration-200">
+                <details class="group overflow-hidden transition-all duration-300 ease-in-out">
+                    <summary class="w-full flex justify-between items-center cursor-pointer list-none py-6">
+                        <h3 class="text-lg font-semibold text-gray-900 w-full">Como vou medir os resultados?</h3>
+                        <span class="text-gray-500 group-open:hidden group-hover:text-sky-400 text-2xl">+</span>
+                        <span class="text-gray-500 hidden group-open:inline group-hover:text-sky-400 text-2xl">–</span>
+                    </summary>
+                    <div
+                        class="grid transition-all duration-300 ease-in-out group-open:grid-rows-[1fr] grid-rows-[0fr]">
+                        <div class="overflow-hidden">
+                            <p class="text-gray-600 mt-2">Fornecemos relatórios detalhados com métricas-chave, como
+                                cliques, conversões e retorno sobre investimento (ROI).</p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Pergunta 5 -->
+            <div class="border-b border-gray-200 hover:border-sky-500 group transition-colors duration-200">
+                <details class="group overflow-hidden transition-all duration-300 ease-in-out">
+                    <summary class="w-full flex justify-between items-center cursor-pointer list-none py-6">
+                        <h3 class="text-lg font-semibold text-gray-900 w-full">Posso cancelar quando quiser?</h3>
+                        <span class="text-gray-500 group-open:hidden group-hover:text-sky-400 text-2xl">+</span>
+                        <span class="text-gray-500 hidden group-open:inline group-hover:text-sky-400 text-2xl">–</span>
+                    </summary>
+                    <div
+                        class="grid transition-all duration-300 ease-in-out group-open:grid-rows-[1fr] grid-rows-[0fr]">
+                        <div class="overflow-hidden">
+                            <p class="text-gray-600 mt-2">Com certeza! Nossos planos são flexíveis e você pode cancelar
+                                a qualquer momento, sem burocracia.</p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+
+            <!-- Pergunta 6 -->
+            <div class="border-b border-gray-200 hover:border-sky-500 group transition-colors duration-200">
+                <details class="group overflow-hidden transition-all duration-300 ease-in-out">
+                    <summary class="w-full flex justify-between items-center cursor-pointer list-none py-6">
+                        <h3 class="text-lg font-semibold text-gray-900 w-full">O que é um chatbot com IA?</h3>
+                        <span class="text-gray-500 group-open:hidden group-hover:text-sky-400 text-2xl">+</span>
+                        <span class="text-gray-500 hidden group-open:inline group-hover:text-sky-400 text-2xl">–</span>
+                    </summary>
+                    <div
+                        class="grid transition-all duration-300 ease-in-out group-open:grid-rows-[1fr] grid-rows-[0fr]">
+                        <div class="overflow-hidden">
+                            <p class="text-gray-600 mt-2">Seria uma automação para conversas de whatsapp, onde ao invés
+                                de um atendente humano, teria a Inteligência Artificial no lugar dele.</p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+
+            <!-- Pergunta 7 -->
+            <div class="border-b border-gray-200 hover:border-sky-500 group transition-colors duration-200">
+                <details class="group overflow-hidden transition-all duration-300 ease-in-out">
+                    <summary class="w-full flex justify-between items-center cursor-pointer list-none py-6">
+                        <h3 class="text-lg font-semibold text-gray-900 w-full">Quais tipos de processos podem ser
+                            automatizados?</h3>
+                        <span class="text-gray-500 group-open:hidden group-hover:text-sky-400 text-2xl">+</span>
+                        <span class="text-gray-500 hidden group-open:inline group-hover:text-sky-400 text-2xl">–</span>
+                    </summary>
+                    <div
+                        class="grid transition-all duration-300 ease-in-out group-open:grid-rows-[1fr] grid-rows-[0fr]">
+                        <div class="overflow-hidden">
+                            <p class="text-gray-600 mt-2">Atendimentos, agendamentos, vendas, follow-ups, envio de
+                                notificações, geração de leads, pedidos e até suporte técnico.</p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Pergunta 8 -->
+            <div class="border-b border-gray-200 hover:border-sky-500 group transition-colors duration-200">
+                <details class="group overflow-hidden transition-all duration-300 ease-in-out">
+                    <summary class="w-full flex justify-between items-center cursor-pointer list-none py-6">
+                        <h3 class="text-lg font-semibold text-gray-900 w-full">Quanto tempo demora para implementar um
+                            sistema automatizado?</h3>
+                        <span class="text-gray-500 group-open:hidden group-hover:text-sky-400 text-2xl">+</span>
+                        <span class="text-gray-500 hidden group-open:inline group-hover:text-sky-400 text-2xl">–</span>
+                    </summary>
+                    <div
+                        class="grid transition-all duration-300 ease-in-out group-open:grid-rows-[1fr] grid-rows-[0fr]">
+                        <div class="overflow-hidden">
+                            <p class="text-gray-600 mt-2">Isso varia conforme a complexidade do projeto, mas geralmente
+                                leva de alguns dias a poucas semanas.</p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Pergunta 9 -->
+            <div class="border-b border-gray-200 hover:border-sky-500 group transition-colors duration-200">
+                <details class="group overflow-hidden transition-all duration-300 ease-in-out">
+                    <summary class="w-full flex justify-between items-center cursor-pointer list-none py-6">
+                        <h3 class="text-lg font-semibold text-gray-900 w-full">O que é tráfego pago?</h3>
+                        <span class="text-gray-500 group-open:hidden group-hover:text-sky-400 text-2xl">+</span>
+                        <span class="text-gray-500 hidden group-open:inline group-hover:text-sky-400 text-2xl">–</span>
+                    </summary>
+                    <div
+                        class="grid transition-all duration-300 ease-in-out group-open:grid-rows-[1fr] grid-rows-[0fr]">
+                        <div class="overflow-hidden">
+                            <p class="text-gray-600 mt-2">Tráfego pago é quando você paga para que seus anúncios
+                                apareçam para mais pessoas na internet. É como alugar um espaço em plataformas como
+                                Google, Facebook ou Instagram para atrair visitantes ao seu site ou perfil.</p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Pergunta 10 -->
+            <div class="border-b border-gray-200 hover:border-sky-500 group transition-colors duration-200">
+                <details class="group overflow-hidden transition-all duration-300 ease-in-out">
+                    <summary class="w-full flex justify-between items-center cursor-pointer list-none py-6">
+                        <h3 class="text-lg font-semibold text-gray-900 w-full">Quais os benefícios do tráfego pago na
+                            minha empresa?</h3>
+                        <span class="text-gray-500 group-open:hidden group-hover:text-sky-400 text-2xl">+</span>
+                        <span class="text-gray-500 hidden group-open:inline group-hover:text-sky-400 text-2xl">–</span>
+                    </summary>
+                    <div
+                        class="grid transition-all duration-300 ease-in-out group-open:grid-rows-[1fr] grid-rows-[0fr]">
+                        <div class="overflow-hidden">
+                            <p class="text-gray-600 mt-2">Com o tráfego pago, você alcança seu público ideal de forma
+                                rápida, aumenta a visibilidade da sua marca e gera mais oportunidades de venda. É uma
+                                forma eficiente de crescer online sem depender apenas do conteúdo orgânico.</p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Pergunta 11 -->
+            <div class="border-b border-gray-200 hover:border-sky-500 group transition-colors duration-200">
+                <details class="group overflow-hidden transition-all duration-300 ease-in-out">
+                    <summary class="w-full flex justify-between items-center cursor-pointer list-none py-6">
+                        <h3 class="text-lg font-semibold text-gray-900 w-full">Quanto tempo leva para ver os resultados
+                            com tráfego pago?</h3>
+                        <span class="text-gray-500 group-open:hidden group-hover:text-sky-400 text-2xl">+</span>
+                        <span class="text-gray-500 hidden group-open:inline group-hover:text-sky-400 text-2xl">–</span>
+                    </summary>
+                    <div
+                        class="grid transition-all duration-300 ease-in-out group-open:grid-rows-[1fr] grid-rows-[0fr]">
+                        <div class="overflow-hidden">
+                            <p class="text-gray-600 mt-2">Os primeiros resultados podem aparecer em poucos dias, mas o
+                                desempenho melhora com o tempo. Isso depende da qualidade da campanha, do público-alvo e
+                                dos testes feitos ao longo do processo.</p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Formulário -->
+    <section id="forms" class="bg-white py-20 px-4 max-w-4xl mx-auto font-[Outfit]" data-aos="fade-in">
+
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-2">Vamos trabalhar juntos?</h2>
+            <p class="text-gray-600">Envie sua mensagem e descubra como podemos aumentar seus resultados</p>
+        </div>
+        <form action="https://formspree.io/f/xanjpaay" method="POST" target="_blank" class="space-y-6">
+
+            <div>
+                <label for="full-name" class="block text-sm font-medium text-black">Nome completo</label>
+                <input type="text" id="full-name" name="Nome completo" required
+                    class="mt-1 block w-full pl-2 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500" />
+            </div>
+
+            <div class="mt-6">
+                <label for="phone" class="block text-sm font-medium text-black">
+                    Telefone <span class="text-black">(Opcional)</span>
+                </label>
+                <input type="tel" id="phone" name="Telefone"
+                    class="mt-1 block w-full pl-2 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500" />
+            </div>
+
+            <div class="mt-6">
+                <label for="email" class="block text-sm font-medium text-black">E-mail</label>
+                <input type="email" id="email" name="Email" required
+                    class="mt-1 block w-full pl-2 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500" />
+            </div>
+
+
+            <div class="mt-6">
+                <label for="company" class="block text-sm font-medium text-black">Empresa</label>
+                <input type="text" id="company" name="Empresa"
+                    class="mt-1 block w-full pl-2 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500" />
+            </div>
+
+            <div class="mt-6">
+                <label for="sector" class="block text-sm font-medium text-black">Setor da empresa</label>
+                <select id="sector" name="Setor da empresa" required
+                    class="mt-1 block w-full pl-2 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500">
+                    <option value="" disabled hidden selected>Selecione</option>
+                    <option value="Comércio">Comércio</option>
+                    <option value="Serviços">Serviços</option>
+                    <option value="Indústria">Indústria</option>
+                    <option value="Tecnologia">Tecnologia</option>
+                    <option value="Tecnologia">Infoproduto</option>
+                    <option value="Tecnologia">E-commerce</option>
+                    <option value="Tecnologia">Varejo</option>
+                    <option value="Tecnologia">Saúde</option>
+                    <option value="Tecnologia">Construção Civil</option>
+                    <option value="Outro">Outro</option>
+                </select>
+            </div>
+
+            <div class="mt-6">
+                <label for="faturamento" class="block text-sm font-medium text-black">Faturamento</label>
+                <select id="faturamento" name="Faturamento" required
+                    class="mt-1 block w-full pl-2 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500">
+                    <option value="" disabled hidden selected>Selecione</option>
+                    <option value="Até 20 mil">Até 20 mil</option>
+                    <option value="20 mil à 50 mil">20 mil à 50 mil</option>
+                    <option value="50 mil à 100 mil">50 mil à 100 mil</option>
+                    <option value="100 mil à 200 mil">100 mil à 200 mil</option>
+                    <option value="200 mil à 500 mil">200 mil à 500 mil</option>
+                    <option value="500 mil à 1 milhão">500 mil à 1 milhão</option>
+                    <option value="Mais de 1 milhão">Mais de 1 milhão</option>
+                </select>
+            </div>
+
+
+            <div class="mt-6">
+                <label for="message" class="block text-sm font-medium text-black">Como podemos te ajudar?</label>
+                <textarea id="message" name="Mensagem" rows="4" maxlength="500"
+                    class="mt-1 block w-full pl-2 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500"></textarea>
+                <p class="text-sm text-black text-right">Máximo de 500 caracteres</p>
+            </div>
+
+            <div id="form-error" class="text-red-600 font-medium mb-4 hidden"></div>
+
+            <div class="mt-6">
+                <button type="submit"
+                    class="group px-6 py-3 bg-black rounded-full font-semibold transition hover:scale-105">
+                    <span
+                        class="text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-br group-hover:from-teal-100 group-hover:via-sky-200 group-hover:to-blue-300">
+                        Enviar mensagem
+                    </span>
+                </button>
+            </div>
+        </form>
+
+
+
+
+
+    </section>
+
+    <!-- Whatsapp -->
+    <a id="whatsapp-btn" href="https://wa.me/message/6P3JZVIXJ6IEJ1" aria-label="WhatsApp da Autopago" target="_blank"
+        rel="noopener noreferrer" data-aos="fade-in"
+        class="fixed bottom-4 right-4 z-20 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition hover:scale-110">
+        <i class="fab fa-whatsapp text-4xl md:text-5xl"></i>
+    </a>
+
+    <!-- CTA + Footer -->
+    <section
+        class=" relative mt-20 mx-2 mb-1 z-20 rounded-3xl bg-gradient-to-br from-teal-100 via-sky-200 to-blue-300 shadow-xl overflow-hidden font-[Outfit]">
+
+        <!-- CTA Final -->
+        <div class="flex flex-col items-center justify-center z-10 text-center px-6 py-20">
+            <h2 class="text-3xl md:text-4xl text-black mb-6">
+                Transforme sua forma de vender com a <span class=" text-black">AutoPago</span><br
+                    class="hidden sm:block">
+                <span class="text-xl font-light block mt-2">Resultados reais, em menos tempo.</span>
+            </h2>
+            <div class="flex flex-col sm:flex-row gap-3">
+                <a href="https://wa.me/message/6P3JZVIXJ6IEJ1" target="_blank"
+                    class="group px-6 py-3 bg-black rounded-full font-semibold transition hover:scale-105 ">
+                    <span class="text-white 
+                group-hover:text-transparent group-hover:bg-clip-text 
+                group-hover:bg-gradient-to-br group-hover:from-teal-100 
+                group-hover:via-sky-200 group-hover:to-blue-300">
+                        Entrar em Contato
+                    </span>
+                </a>
+
+                <a href="#planos"
+                    class="relative inline-flex items-center justify-center px-4 py-2 rounded-full border border-transparent bg-white/15 shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full after:shadow-[inset_0_0_2px_1px_#ffffff4d] text-base font-medium whitespace-nowrap text-gray-950 hover:bg-white/60 hover:scale-105 transition">
+                    Ver Planos
+                </a>
+            </div>
+        </div>
+        <div class="h-[0.3px] w-full bg-white"></div>
+        <!-- Footer -->
+        <footer class="text-gray-700 text-sm px-4 py-6 border-t-white">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+                <div>
+                    © 2025 AutoPago. Todos os direitos reservados.
+                </div>
+                <div class="flex gap-4 text-xl mt-4 md:mt-0">
+                    <a href="https://wa.me/message/6P3JZVIXJ6IEJ1" target="_blank" aria-label="WhatsApp da Autopago"
+                        class="text-gray-800 hover:text-black hover:scale-110 transition motion-safe:hover:motion-translate-y-loop-25">
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/autopagooficial/" target="_blank"
+                        aria-label="Instagram da Autopago"
+                        class="text-gray-800 hover:text-black hover:scale-110 transition motion-safe:hover:motion-translate-y-loop-25">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+
+                    <a href="https://www.facebook.com/profile.php?id=61576394737252" target="_blank"
+                        aria-label="Facebook da Autopago"
+                        class="text-gray-800 hover:text-black hover:scale-110 transition motion-safe:hover:motion-translate-y-loop-25">
+                        <i class="fab fa-facebook text-2xl"></i>
+                    </a>
+
+                    <a href="https://www.tiktok.com/@autopagooficial" target="_blank" aria-label="TikTok da Autopago"
+                        class="text-gray-800 hover:text-black hover:scale-110 transition motion-safe:hover:motion-translate-y-loop-25">
+                        <i class="fab fa-tiktok text-xl"></i>
+                    </a>
+
+                    <a href="https://www.youtube.com/@Autopago" target="_blank" aria-label="YouTube da Autopago"
+                        class="text-gray-800 hover:text-black hover:scale-110 transition motion-safe:hover:motion-translate-y-loop-25">
+                        <i class="fab fa-youtube text-2xl"></i>
+                    </a>
+
+                    <a href="#forms" aria-label="Formulário de contato da Autopago"
+                        class="text-gray-800 hover:text-black hover:scale-110 transition motion-safe:hover:motion-translate-y-loop-25">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </a>
+                    <!-- Icone linkedIn
+                    <a href="#" aria-label="LinkedIn da Autopago"
+                        class="text-gray-800 hover:text-black hover:scale-110 transition motion-safe:hover:motion-translate-y-loop-25">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+-->
+
+
+
+                </div>
+            </div>
+        </footer>
+    </section>
+
+
+
+    <!-- javascript -->
+    <script src="script.js"></script>
+
+    <!-- carrosseis -->
+    <script>
+        new Swiper(".iconSwiper", {
+            slidesPerView: 4,
+
+            speed: 1500,
+            loop: true,
+            allowTouchMove: false,
+            autoplay: {
+                delay: 0,
+                disableOnInteraction: false,
+            },
+            freeMode: {
+                enabled: true,
+                momentum: false,
+            },
+
+            spaceBetween: 20, // valor padrão (mobile)
+
+            breakpoints: {
+                768: {
+                    spaceBetween: 100, // aplica a partir de 768px
+                    speed: 1800,
+                }
+            }
+        });
+
+        new Swiper(".trafficToolsSwiper", {
+            slidesPerView: 4,
+            speed: 1500,
+            loop: true,
+            allowTouchMove: false,
+            autoplay: {
+                delay: 0,
+                disableOnInteraction: false,
+            },
+            freeMode: {
+                enabled: true,
+                momentum: false,
+            },
+            spaceBetween: 35, // valor padrão (mobile)
+
+            breakpoints: {
+                768: {
+                    speed: 1800,
+                    spaceBetween: 90, // aplica a partir de 768px
+                }
+            }
+        });
+
+
+
+
+    </script>
+
+    <!-- header mudar de cor -->
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const header = document.getElementById('mainHeader');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const menuDivider = document.getElementById('menuDivider');
+
+        let menuOpen = false;
+
+        function openMenu() {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+            setTimeout(() => {
+                mobileMenu.classList.remove('opacity-0', 'scale-95');
+                mobileMenu.classList.add('opacity-100', 'scale-100');
+            }, 10);
+
+            header.classList.remove('bg-transparent', 'border-white/10', 'py-4');
+            header.classList.add('bg-white', 'shadow', 'py-2');
+            menuDivider.classList.remove('hidden');
+            menuOpen = true;
+        }
+
+        function closeMenu() {
+            mobileMenu.classList.remove('opacity-100', 'scale-100');
+            mobileMenu.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 200); // tempo da animação
+            menuDivider.classList.add('hidden');
+
+            if (window.scrollY <= 10) {
+                header.classList.remove('bg-white', 'shadow', 'py-2');
+                header.classList.add('bg-transparent', 'border-white/10', 'py-4');
+            }
+            menuOpen = false;
+        }
+        menuBtn.addEventListener('click', () => {
+            if (menuOpen) {
+                closeMenu();
+                menuBtn.classList.remove('x'); // Remove o X ao fechar
+            } else {
+                openMenu();
+                menuBtn.classList.add('x'); // Adiciona o X ao abrir
+            }
+        });
+
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                closeMenu();
+                menuBtn.classList.remove('x')
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header'); // Ensure this targets your header
+            const logo = document.getElementById('logo'); // Target the logo image
+
+
+            if (window.scrollY > 10) {
+                header.classList.remove('bg-transparent', 'border-white/10', 'py-4');
+                header.classList.add('bg-white', 'shadow', 'py-2');
+
+            } else if (!menuOpen) {
+                header.classList.remove('bg-white', 'shadow', 'py-2');
+                header.classList.add('bg-transparent', 'border-white/10', 'py-4');
+
+            }
+        });
+
+
+
+
+    </script>
+    <!-- animacao home -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        new Typed('#typed-word', {
+            strings: ['enos Esforço', 'enos Gastos', 'ais Lucro!'],
+            typeSpeed: 80,
+            backSpeed: 80,
+            backDelay: 2500,
+            loop: true
+        });
+    </script>
+
+    <!-- animacoes geral -->
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+
+
+
+
+
+
+
+</body>
+
+</html>
